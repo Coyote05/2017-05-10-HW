@@ -150,7 +150,7 @@ public class FileOperation {
 
         for(File items : files){
             if(items.isFile()){
-                System.out.println(items.getName());
+                System.out.println(items.getName() + ", ");
             }
         }
     }
