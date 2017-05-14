@@ -154,4 +154,22 @@ public class FileOperation {
             }
         }
     }
+
+    public static void printAllInDirectory(String place){
+
+        File file = new File(place);
+
+        File[] files = file.listFiles();
+
+        for(File items : files){
+            if(items.isDirectory()){
+
+                System.out.println(items.getName());
+            }
+            if(items.isFile()){
+
+                System.out.println(items.getName());
+            }
+        }
+    }
 }

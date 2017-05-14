@@ -20,5 +20,7 @@ public class Main {
         fileOperation.printDirsInDirectory("C:\\Users\\C\\IdeaProjects\\2017-05-10-HW");
 
         fileOperation.printFilesInDirectory("C:\\Users\\C\\IdeaProjects\\2017-05-10-HW");
+
+        fileOperation.printAllInDirectory("C:\\Users\\C\\IdeaProjects\\2017-05-10-HW");
     }
 }
