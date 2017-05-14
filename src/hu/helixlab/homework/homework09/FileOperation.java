@@ -1,6 +1,7 @@
 package hu.helixlab.homework.homework09;
 
 import java.io.*;
+import java.util.Arrays;
 
 public class FileOperation {
 
@@ -171,5 +172,83 @@ public class FileOperation {
                 System.out.println(items.getName());
             }
         }
+    }
+
+    public static boolean isFilesEquals(String fileOne, String fileTwo){
+
+        boolean result = false;
+
+        try {
+
+            BufferedReader br1 = new BufferedReader(new FileReader(fileOne));
+            BufferedReader br2 = new BufferedReader(new FileReader(fileTwo));
+
+            String lineOne;
+            String lineTwo;
+            int charFromFileOne;
+            int charFromFileTwo;
+            int charsCounterOne = 0;
+            int charsCounterTwo = 0;
+            int charsCounterBigger;
+            int count = 0;
+
+            while ((lineOne = br1.readLine()) != null) {
+
+                for (int i = 0; i < lineOne.length()+2; i++) {
+
+                    charsCounterOne++;
+                }
+            }
+            br1.close();
+
+            while ((lineTwo = br2.readLine()) != null) {
+
+                for (int i = 0; i < lineTwo.length()+2; i++) {
+
+                    charsCounterTwo++;
+                }
+            }
+            br2.close();
+
+            if(charsCounterOne < charsCounterTwo){
+
+                charsCounterBigger = charsCounterTwo;
+            }
+            else{
+                charsCounterBigger = charsCounterOne;
+            }
+
+            FileReader fileReaderOne = new FileReader(fileOne);
+            FileReader fileReaderTwo = new FileReader(fileTwo);
+
+            int[] charsOne = new int[charsCounterBigger];
+            int[] charsTwo = new int[charsCounterBigger];
+
+            while (((charFromFileOne = fileReaderOne.read()) != -1) && ((charFromFileTwo = fileReaderTwo.read()) != -1)) {
+
+                charsOne[count] = charFromFileOne;
+                charsTwo[count] = charFromFileTwo;
+                count++;
+            }
+            fileReaderOne.close();
+            fileReaderTwo.close();
+
+            if (Arrays.equals(charsOne, charsTwo)) {
+
+                result = true;
+            }
+            else {
+                result = false;
+            }
+
+        } catch (ArrayIndexOutOfBoundsException e){
+            System.out.println("The size of the array is not enough!");
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found" + e.getMessage());
+        } catch (IOException e) {
+            System.out.println("IOException" + e.getMessage());
+        }
+
+        return result;
     }
 }
