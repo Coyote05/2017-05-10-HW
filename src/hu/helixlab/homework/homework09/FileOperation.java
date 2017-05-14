@@ -1,6 +1,7 @@
 package hu.helixlab.homework.homework09;
 
 import java.io.*;
+import java.util.Arrays;
 
 public class FileOperation {
 
@@ -127,5 +128,20 @@ public class FileOperation {
         } catch (IOException e) {
             System.out.println("IOException " + e.getMessage());
         }
+    }
+
+    public static void printDirsInDirectory(String place){
+
+        File file = new File(place);
+
+        String[] dirs = file.list(new FilenameFilter() {
+
+            public boolean accept(File current, String name) {
+
+                return new File(current, name).isDirectory();
+            }
+        });
+
+        System.out.println(Arrays.toString(dirs));
     }
 }

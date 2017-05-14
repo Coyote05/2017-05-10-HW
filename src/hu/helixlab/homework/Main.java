@@ -16,5 +16,7 @@ public class Main {
         fileOperation.fileMakerWithContent("C:\\Users\\C\\IdeaProjects\\2017-05-10-HW\\src\\hu\\helixlab\\homework\\homework09\\", 5, "Fourth.txt", "Message");
 
         fileOperation.printMatrixFromFile();
+
+        fileOperation.printDirsInDirectory("C:\\Users\\C\\IdeaProjects\\2017-05-10-HW");
     }
 }
