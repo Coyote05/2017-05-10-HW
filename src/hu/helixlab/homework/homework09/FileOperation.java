@@ -1,7 +1,6 @@
 package hu.helixlab.homework.homework09;
 
 import java.io.*;
-import java.util.Arrays;
 
 public class FileOperation {
 
@@ -134,15 +133,13 @@ public class FileOperation {
 
         File file = new File(place);
 
-        String[] dirs = file.list(new FilenameFilter() {
+        File[] files = file.listFiles();
 
-            public boolean accept(File current, String name) {
-
-                return new File(current, name).isDirectory();
+        for(File items : files) {
+            if (items.isDirectory()) {
+                System.out.print(items.getName() + ", ");
             }
-        });
-
-        System.out.println(Arrays.toString(dirs));
+        }
     }
 
     public static void printFilesInDirectory(String place){
