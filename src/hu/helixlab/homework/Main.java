@@ -23,6 +23,8 @@ public class Main {
 
         fileOperation.printAllInDirectory("C:\\Users\\C\\IdeaProjects\\2017-05-10-HW");
 
+        System.out.println(fileOperation.searchFile("matrix.txt"));
+
         System.out.println(fileOperation.isFilesEquals("C:\\Users\\C\\IdeaProjects\\2017-05-10-HW\\src\\hu\\helixlab\\homework\\homework09\\1.txt", "C:\\Users\\C\\IdeaProjects\\2017-05-10-HW\\src\\hu\\helixlab\\homework\\homework09\\2.txt"));
     }
 }

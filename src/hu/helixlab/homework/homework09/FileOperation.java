@@ -174,6 +174,40 @@ public class FileOperation {
         }
     }
 
+    public static String searchFile(String fileName){
+
+        String result = "Not found yet!";
+        String pathName = "C:\\Users\\C\\IdeaProjects\\2017-05-10-HW\\src\\hu\\helixlab\\homework\\homework09";
+
+        try {
+            File file = new File(pathName);
+
+            File[] files = file.listFiles();
+
+            for (File items : files) {
+                if (items.isDirectory()) {
+
+                    pathName = items.getAbsolutePath();
+
+                }
+                if (items.isFile()) {
+
+                    if (fileName.equals(items.getName())) {
+
+                        System.out.println(fileName + " is here: ");
+                        result = items.getAbsolutePath();
+                        break;
+                    }
+                }
+            }
+
+        }catch (NullPointerException e){
+            System.out.println("NullPointerException: " + e.getMessage());
+        }
+
+        return result;
+    }
+
     public static boolean isFilesEquals(String fileOne, String fileTwo){
 
         boolean result = false;
