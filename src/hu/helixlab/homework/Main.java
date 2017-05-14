@@ -18,5 +18,7 @@ public class Main {
         fileOperation.printMatrixFromFile();
 
         fileOperation.printDirsInDirectory("C:\\Users\\C\\IdeaProjects\\2017-05-10-HW");
+
+        fileOperation.printFilesInDirectory("C:\\Users\\C\\IdeaProjects\\2017-05-10-HW");
     }
 }

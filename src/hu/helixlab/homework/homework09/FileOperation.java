@@ -144,4 +144,17 @@ public class FileOperation {
 
         System.out.println(Arrays.toString(dirs));
     }
+
+    public static void printFilesInDirectory(String place){
+
+        File file = new File(place);
+
+        File[] files = file.listFiles();
+
+        for(File items : files){
+            if(items.isFile()){
+                System.out.println(items.getName());
+            }
+        }
+    }
 }
