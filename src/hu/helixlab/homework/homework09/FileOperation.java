@@ -223,7 +223,6 @@ public class FileOperation {
             int charFromFileTwo;
             int charsCounterOne = 0;
             int charsCounterTwo = 0;
-            int charsCounterBigger;
             int count = 0;
 
             while ((lineOne = br1.readLine()) != null) {
@@ -244,19 +243,11 @@ public class FileOperation {
             }
             br2.close();
 
-            if(charsCounterOne < charsCounterTwo){
-
-                charsCounterBigger = charsCounterTwo;
-            }
-            else{
-                charsCounterBigger = charsCounterOne;
-            }
-
             FileReader fileReaderOne = new FileReader(fileOne);
             FileReader fileReaderTwo = new FileReader(fileTwo);
 
-            int[] charsOne = new int[charsCounterBigger];
-            int[] charsTwo = new int[charsCounterBigger];
+            int[] charsOne = new int[charsCounterOne];
+            int[] charsTwo = new int[charsCounterTwo];
 
             while (((charFromFileOne = fileReaderOne.read()) != -1) && ((charFromFileTwo = fileReaderTwo.read()) != -1)) {
 
@@ -276,11 +267,11 @@ public class FileOperation {
             }
 
         } catch (ArrayIndexOutOfBoundsException e){
-            System.out.println("The size of the array is not enough!");
+            System.out.println("The size of the array is not enough! ");
         } catch (FileNotFoundException e) {
-            System.out.println("File not found" + e.getMessage());
+            System.out.println("File not found " + e.getMessage());
         } catch (IOException e) {
-            System.out.println("IOException" + e.getMessage());
+            System.out.println("IOException " + e.getMessage());
         }
 
         return result;
